@@ -1,0 +1,52 @@
+/*
+Aufgabe 4.3
+
+Implementieren Sie in der Methode sortieren( int array[ ] ) einen Java Algorithmus, der das übergebene Array array aufsteigend sortiert.
+
+
+Hinweis:
+Sie dürfen sich entweder einen Algorithmus selber ausdenken oder am einfachsten z.B. den BubbleSort Algorithmus verwenden.
+Zum Beispiel:
+
+Test	
+int[]a = {2000, 2, 45, 34, 100000, 345, 56, 78, 99 ,756,  999, 0, 666, 2345, 7492, 22};
+System.out.println(Arrays.toString(a));
+sortieren(a);
+System.out.println(Arrays.toString(a));
+
+Resultat
+[2000, 2, 45, 34, 100000, 345, 56, 78, 99, 756, 999, 0, 666, 2345, 7492, 22]
+[0, 2, 22, 34, 45, 56, 78, 99, 345, 666, 756, 999, 2000, 2345, 7492, 100000]
+
+Test
+int[]a = {7000, 24, 45, 347,   999, 0, 666, 245, 7495, 2552};
+System.out.println(Arrays.toString(a));
+sortieren(a);
+System.out.println(Arrays.toString(a));
+
+Resultat
+[7000, 24, 45, 347, 999, 0, 666, 245, 7495, 2552]
+[0, 24, 45, 245, 347, 666, 999, 2552, 7000, 7495]
+*/
+
+//CODE BEGINN
+public static void sortieren(int array[]) 
+{
+	
+	int tmp = 0;
+	int tmp2 = 0;
+	int l = array.length;
+	for(int o = 0; o<l; o++)
+	{
+		for(int i = 0 ; i<l; i++)
+		{
+			if(array[o] > array[i] & i>o)
+			{
+				tmp = array[i];
+				tmp2 = array[o];
+				array[i] = tmp2;
+				array[o] = tmp;
+			}
+		}
+	}	
+}
