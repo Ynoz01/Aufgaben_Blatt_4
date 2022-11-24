@@ -1,0 +1,108 @@
+/*
+Aufgabe 4.5
+
+Gegeben ist ein dreidimensionales Array wie z.B.: int[][][] einArray = {{{5,4,3,2,11}, {10,9,8,7,6}, {15,14,13,12,111}}};
+Schreiben Sie eine Methode dreiDimSortieren(), der als Argument ein dreidimensionale Array übergeben wird und dann Inhalte aller Dimensionen des Ar­ays in aufsteigender Reihenfolge sortiert. Geben Sie den gesamten Inhalt zeilenweise auf den Bildschirm aus und orientieren sich bei der Ausgabe an dem beispielhaften Testfall.
+
+Hinweis:  
+Verwenden Sie zum Sortieren Ihre in Aufgabe 4.3 erstellte Methode! 
+Kopieren Sie die Methode in 1:1 und rufen Sie diese entsprechend auf.
+Zum Beispiel:
+
+Test
+int[][][] einArray = {{{5,4,3,2,11}, {10,9,8,7,6}, {15,14,13,12,111}}};
+dreiDimSortieren(einArray);
+
+Resultat
+Array Dim: 1
+2
+3
+4
+5
+11
+Array Dim: 2
+6
+7
+8
+9
+10
+Array Dim: 3
+12
+13
+14
+15
+111
+
+
+*/
+
+
+
+public static void dreiDimSortieren(int[][][] einArray)
+	{
+		int b =einArray.length;
+		int n =einArray[0].length;
+		int m =einArray[0][0].length;
+		int counter = 0;
+		int counter2 = 1;
+		
+		
+		for(int i = 0; i<b; i++)
+		{
+			for(int j = 0; j < n; j++)
+			{
+				m = einArray[0][j].length;
+				int[]array = new int[m];
+				for(int k = 0 ; k < m; k++)
+				{
+					array[k] = einArray[i][j][k];
+				}
+				
+				sortieren(array);
+				
+				for(int k = 0; k < m; k++)
+				{
+					einArray[i][j][k] = array[k];
+				}
+			}
+		}
+		
+			for(int p[][] : einArray)
+			{
+				
+				for(int po[] : p)
+				{
+					counter=1;
+					for(int pos : po)
+					{
+						if(counter==1)
+						System.out.println("Array Dim: " + counter2 + " \n" + pos);
+						else
+						System.out.println(pos);
+						counter++;
+					}
+					counter2++;
+				}
+			}
+	}
+	
+	public static void sortieren(int array[]) 
+	{
+		
+		int tmp = 0;
+		int tmp2 = 0;
+		int l = array.length;
+		for(int o = 0; o<l; o++)
+		{
+			for(int i = 0 ; i<l; i++)
+			{
+				if(array[o] > array[i] & i>o)
+				{
+					tmp = array[i];
+					tmp2 = array[o];
+					array[i] = tmp2;
+					array[o] = tmp;
+				}
+			}
+		}	
+	}
